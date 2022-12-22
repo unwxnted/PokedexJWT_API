@@ -10,7 +10,7 @@ content-type: application/json
 }
 
 ### GET
-GET http://localhost:3000/api/getAll
+GET http://localhost:3000/api/getById/2
 content-type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzE2ODYxMzB9.2RSh_cODiyOzHS8go9CX4fxprUOJcOzDMGM3yEIWVN0
 

@@ -13,7 +13,6 @@ const { verifyToken } = require('./utils');
 
 */
 
-
 router.get('/api/getAll', verifyToken, async (req, res, next) => {
 
     const pokemons = await pool.query('SELECT * FROM pokemons');
@@ -22,7 +21,30 @@ router.get('/api/getAll', verifyToken, async (req, res, next) => {
 });
 
 
+router.get('/api/getByid/:id', verifyToken, async (req, res, next) => {
 
+    const { id } = req.params;
+
+    const pokemon = await pool.query('SELECT * FROM pokemons WHERE id = ?', [id]);
+    
+    if(pokemon.length > 0) return res.json(pokemon);
+
+
+    return res.status(404).json({ message: 'Pokemon not found' });
+
+});
+
+router.get('/api/getByName/:name', verifyToken, async (req, res, next) => {
+
+    const {name} = req.params;
+
+    const pokemon = await pool.query('SELECT * FROM pokemons WHERE name = ?', [name]);
+
+    if(pokemon.length > 0) return res.json(pokemon);
+
+    return res.status(404).json({ message: 'Pokemon not found' });
+
+});
 
 
 module.exports = router;
