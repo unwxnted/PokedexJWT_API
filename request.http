@@ -10,8 +10,52 @@ content-type: application/json
 }
 
 ### GET
-GET http://localhost:3000/api/getById/2
+GET http://localhost:3000/api/getAll
 content-type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzE2ODYxMzB9.2RSh_cODiyOzHS8go9CX4fxprUOJcOzDMGM3yEIWVN0
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMyOTY1NzJ9.7q1OyFfC1p24vDxVwtswnXi8I2j_eJRcQp1Bco0nl60
+
+### GET
+GET http://localhost:3000/api/getByName/pikachu
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMyOTY1NzJ9.7q1OyFfC1p24vDxVwtswnXi8I2j_eJRcQp1Bco0nl60
 
 
+### POST
+POST http://localhost:3000/api/post
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMyOTY1NzJ9.7q1OyFfC1p24vDxVwtswnXi8I2j_eJRcQp1Bco0nl60
+
+{
+    "name" : "bulbasour",
+    "type" : "plant",
+    "generation" : 1,
+    "captured" : 1
+}
+
+
+### DELETE
+DELETE http://localhost:3000/api/delete/2
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMyOTY1NzJ9.7q1OyFfC1p24vDxVwtswnXi8I2j_eJRcQp1Bco0nl60
+
+
+### POST
+POST http://localhost:3000/api/signin
+content-type: application/json
+
+{
+    "username": "wknss",
+    "password": "admin123"
+}
+
+### POST
+POST http://localhost:3000/api/edit/3
+Content-Type:application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMyOTY1NzJ9.7q1OyFfC1p24vDxVwtswnXi8I2j_eJRcQp1Bco0nl60
+
+{
+    "name" : "pikachu",
+    "type" : "lightning",
+    "generation" : 1,
+    "captured" : 1
+}

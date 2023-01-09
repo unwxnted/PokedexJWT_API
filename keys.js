@@ -4,5 +4,6 @@ module.exports = {
         user: 'root',
         password: 'root123',
         database: 'pokedex_db'
-    }
+    },
+    secret: 'pokedex_secret'
 }
