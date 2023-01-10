@@ -1,57 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const jwt = require('jsonwebtoken');
-const pool = require('../database');
-const {secret} = require('../keys.js')
-const { encryptPassword, matchPassword} = require('../lib/utils');
+const {signinController, signupController} = require('../controllers/users.controller');
 
 
-router.post('/signup', async (req, res) => {
-
-    const user = {
-        id: req.body.userId,
-        username: req.body.username,
-        password: req.body.password
-    };
-
-
-    const rows = await pool.query('SELECT * FROM users WHERE username = ?', [user.username]);
-    if (rows.length > 0 && rows) return res.status(400).json({ Error: 'User already exists' });
-
-    const token = jwt.sign({ user }, secret);
-
-    user.password = await encryptPassword(user.password);
-
-    user.token = token;
-
-    await pool.query('INSERT INTO users SET ?', [user]);
-
-    return res.json({
-        id: user.id,
-        username: user.username,
-        token: token
-    });
-
-});
-
-
-
-router.post('/signin', async (req, res) => {
-    const {username, password} = req.body;
-
-    if(!username || !password) return res.status(400).json({Error:'Missing credentials'});
-
-    const rows = await pool.query('SELECT * FROM users WHERE username =?', [username]);
-
-    if (rows.length === 0) return res.status(400).json({ Error:'User not found'});
-
-    const validPassword = await matchPassword(password, rows[0].password);
-
-    if(!validPassword) return res.status(400).json({Error:'Invalid credentials'});
-
-    return res.status(200).json({username: username, token: rows[0].token});
-
-})
+router.post('/signup', signupController);
+router.post('/signin', signinController);
 
 
 module.exports = router;

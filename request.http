@@ -12,32 +12,30 @@ content-type: application/json
 ### GET
 GET http://localhost:3000/api/getAll
 content-type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMyOTY1NzJ9.7q1OyFfC1p24vDxVwtswnXi8I2j_eJRcQp1Bco0nl60
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMzMDA0ODZ9.FjNeeTXXF0s_c8DIT0p9Tui8yqfCmX0qrNFSPRX8f4s
 
 ### GET
 GET http://localhost:3000/api/getByName/pikachu
 content-type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMyOTY1NzJ9.7q1OyFfC1p24vDxVwtswnXi8I2j_eJRcQp1Bco0nl60
-
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMzMDA0ODZ9.FjNeeTXXF0s_c8DIT0p9Tui8yqfCmX0qrNFSPRX8f4s
 
 ### POST
 POST http://localhost:3000/api/post
 content-type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMyOTY1NzJ9.7q1OyFfC1p24vDxVwtswnXi8I2j_eJRcQp1Bco0nl60
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMzMDA0ODZ9.FjNeeTXXF0s_c8DIT0p9Tui8yqfCmX0qrNFSPRX8f4s
 
 {
-    "name" : "bulbasour",
-    "type" : "plant",
+    "name" : "charizard",
+    "type" : "fire",
     "generation" : 1,
     "captured" : 1
 }
 
 
 ### DELETE
-DELETE http://localhost:3000/api/delete/2
+DELETE http://localhost:3000/api/delete/4
 content-type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMyOTY1NzJ9.7q1OyFfC1p24vDxVwtswnXi8I2j_eJRcQp1Bco0nl60
-
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMzMDA0ODZ9.FjNeeTXXF0s_c8DIT0p9Tui8yqfCmX0qrNFSPRX8f4s
 
 ### POST
 POST http://localhost:3000/api/signin
@@ -51,7 +49,7 @@ content-type: application/json
 ### POST
 POST http://localhost:3000/api/edit/3
 Content-Type:application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMyOTY1NzJ9.7q1OyFfC1p24vDxVwtswnXi8I2j_eJRcQp1Bco0nl60
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMzMDA0ODZ9.FjNeeTXXF0s_c8DIT0p9Tui8yqfCmX0qrNFSPRX8f4s
 
 {
     "name" : "pikachu",
