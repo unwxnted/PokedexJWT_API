@@ -10,6 +10,7 @@ const {
     editController
 } = require('../controllers/pokemons.controller.js');
 
+router.use(express.json());
 
 router.get('/getAll', verifyToken, getAllController);
 

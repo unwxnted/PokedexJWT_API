@@ -49,6 +49,8 @@ const postController = async (req, res, next) => {
     const token = await getTokenFromHeader(req.headers);
     const id_user = await getUserFromToken(token);
 
+    if (!name || !type || !generation || !captured) return res.status(400).json({ message: 'Missing data' });
+
     const newPokemon = {
         name,
         type,
@@ -63,22 +65,21 @@ const postController = async (req, res, next) => {
 
 };
 
-const deleteController = async (req, res, next) => {
+const deleteController = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const token = await getTokenFromHeader(req.headers);
+        const id_user = await getUserFromToken(token);
+        const deletedPokemon = await pool.query('DELETE FROM pokemons WHERE id =? AND userId = ?', [id, id_user]);
+        if (deletedPokemon.affectedRows === 0) {
+            return res.status(404).json({ message: 'Pokemon not found' });
+        }
 
-    const { id } = req.params;
-    const token = await getTokenFromHeader(req.headers);
-    const id_user = await getUserFromToken(token);
-
-    let deletedPokemon = await pool.query('DELETE FROM pokemons WHERE id =? AND userId = ?', [id, id_user]);
-    deletedPokemon = (JSON.parse(JSON.stringify(deletedPokemon))).affectedRows;
-
-    if (deletedPokemon < 1) {
-        return res.status(404).json({ message: 'Pokemon not found' });
+        return res.status(200).json({ message: 'Pokemon deleted successfully' });
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
     }
-
-    return res.status(204);
-};
-
+}
 
 const editController = async (req, res, next) => {
 
@@ -86,6 +87,8 @@ const editController = async (req, res, next) => {
     const { name, type, generation, captured } = req.body;
     const token = await getTokenFromHeader(req.headers);
     const id_user = await getUserFromToken(token);
+
+    if(!id || !name || !type || !generation || !captured) return res.status(400).json({message: 'Missing data'});
 
     const pokemon = await pool.query('SELECT * FROM pokemons WHERE id= ? AND userId = ?', [id, id_user]);
 
@@ -102,7 +105,7 @@ const editController = async (req, res, next) => {
     await pool.query('UPDATE pokemons SET ?  WHERE id = ? AND userID = ?', [UpdatedPokemon, id, id_user]);
 
 
-    res.status(200).json({ message: "Pokemon Updated", Pokemon: UpdatedPokemon });
+    return res.status(200).json({ message: "Pokemon Updated", Pokemon: UpdatedPokemon });
 
 };
 

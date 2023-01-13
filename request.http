@@ -33,7 +33,7 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxL
 
 
 ### DELETE
-DELETE http://localhost:3000/api/delete/4
+DELETE http://localhost:3000/api/delete/15
 content-type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IndrbnNzIiwicGFzc3dvcmQiOiJhZG1pbjEyMyJ9LCJpYXQiOjE2NzMzMDA0ODZ9.FjNeeTXXF0s_c8DIT0p9Tui8yqfCmX0qrNFSPRX8f4s
 
