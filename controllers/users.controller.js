@@ -3,13 +3,15 @@ const pool = require('../database');
 const { secret } = require('../keys.js');
 const { encryptPassword, matchPassword } = require('../lib/utils');
 
-const signupController =  async (req, res) => {
+const signupController = async (req, res) => {
 
     const user = {
         id: req.body.userId,
         username: req.body.username,
         password: req.body.password
     };
+
+    if (!req.body.userId || !req.body.username || !req.body.password) return res.status(400).json({ message: 'Missing data' });
 
     const rows = await pool.query('SELECT * FROM users WHERE username = ?', [user.username]);
     if (rows.length > 0 && rows) return res.status(400).json({ Error: 'User already exists' });
@@ -38,7 +40,7 @@ const signinController = async (req, res) => {
 
     const rows = await pool.query('SELECT * FROM users WHERE username =?', [username]);
 
-    if (rows.length === 0) return res.status(400).json({ Error: 'User not found' });
+    if (rows.length === 0) return res.status(404).json({ Error: 'User not found' });
 
     const validPassword = await matchPassword(password, rows[0].password);
 
